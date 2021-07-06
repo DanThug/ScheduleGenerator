@@ -7,127 +7,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="./style.css">
     <title>Gerador de Horários</title>
 </head>
 
 <body>
+    <div class="intro py-1 bg-primary text-center">
+        <div class="container">
+          <h2 class="text-light display-4 my-2">Horários de Sirene</h2>
+        </div>
+      </div>
     <div class="container container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-main">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Horário</th>
-                            <th scope="col">Seg</th>
-                            <th scope="col">Ter</th>
-                            <th scope="col">Qua</th>
-                            <th scope="col">Qui</th>
-                            <th scope="col">Sex</th>
-                            <th scope="col">Sab</th>
-                            <th scope="col">Dom</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="timelines">
-                            <th scope="row" data-main-index=""></th>
-                            <td><input type="time" value="07:00" data-time="1"></td>
-                            <td><input type="checkbox" data-day="1" checked></td>
-                            <td><input type="checkbox" data-day="1"></td>
-                            <td><input type="checkbox" data-day="1" checked></td>
-                            <td><input type="checkbox" data-day="1" checked></td>
-                            <td><input type="checkbox" data-day="1"></td>
-                            <td><input type="checkbox" data-day="1"></td>
-                            <td><input type="checkbox" data-day="1"></td>
-                        </tr>
-                        <tr class="timelines">
-                            <th scope="row" data-main-index=""></th>
-                            <td><input type="time" value="08:00" data-time="2"></td>
-                            <td><input type="checkbox" data-day="2" checked></td>
-                            <td><input type="checkbox" data-day="2"></td>
-                            <td><input type="checkbox" data-day="2"></td>
-                            <td><input type="checkbox" data-day="2"></td>
-                            <td><input type="checkbox" data-day="2" checked></td>
-                            <td><input type="checkbox" data-day="2"></td>
-                            <td><input type="checkbox" data-day="2" checked></td>
-                        </tr>
-                        <tr class="timelines">
-                            <th scope="row" data-main-index=""></th>
-                            <td><input type="time" value="09:00" data-time="3"></td>
-                            <td><input type="checkbox" data-day="3"></td>
-                            <td><input type="checkbox" data-day="3"></td>
-                            <td><input type="checkbox" data-day="3" checked></td>
-                            <td><input type="checkbox" data-day="3"></td>
-                            <td><input type="checkbox" data-day="3"></td>
-                            <td><input type="checkbox" data-day="3"></td>
-                            <td><input type="checkbox" data-day="3"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div><!-- col-md-12 -->
+        <div class="container-main">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-main">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Horário</th>
+                                <th scope="col">Seg</th>
+                                <th scope="col">Ter</th>
+                                <th scope="col">Qua</th>
+                                <th scope="col">Qui</th>
+                                <th scope="col">Sex</th>
+                                <th scope="col">Sab</th>
+                                <th scope="col">Dom</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="timelines">
+                                <th scope="row" data-main-index=""></th>
+                                <td><input type="time" data-time="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                                <td><input type="checkbox" data-day="1"></td>
+                            </tr>
+                            <tr class="timelines">
+                                <th scope="row" data-main-index=""></th>
+                                <td><input type="time" data-time="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                                <td><input type="checkbox" data-day="2"></td>
+                            </tr>
+                            <tr class="timelines">
+                                <th scope="row" data-main-index=""></th>
+                                <td><input type="time" data-time="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                                <td><input type="checkbox" data-day="3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- col-md-12 -->
+    
+                <div class="col-md-3">
+                    <button type="button" id="addSchedule" class="btn btn-primary btn-block">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" id="saveSchedule" class="btn btn-success btn-block font-weight-bold">Salvar Horário</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" id="resetSchedule" class="btn btn-danger btn-block">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div><!-- row -->
+        </div><!-- container-main -->
 
-            <div class="col-md-3">
-                <button type="button" id="addTime" class="btn btn-success btn-block">Adicionar Horário</button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" id="saveTime" class="btn btn-primary btn-block">Salvar Horário</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" id="resetTable" class="btn btn-danger btn-block">Apagar Tabela</button>
-            </div>
-        </div><!-- row -->
-
-        <div class="row"><!-- row -->
-            <div class="col-md-12">
-                <table class="table table-alternative">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Seg</th>
-                            <th scope="col">Ter</th>
-                            <th scope="col">Qua</th>
-                            <th scope="col">Qui</th>
-                            <th scope="col">Sex</th>
-                            <th scope="col">Sab</th>
-                            <th scope="col">Dom</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row" data-alternative-index=""></th>
-                            <td data-set-day="1"></td>
-                            <td data-set-day="1"></td>
-                            <td data-set-day="1"></td>
-                            <td data-set-day="1"></td>
-                            <td data-set-day="1"></td>
-                            <td data-set-day="1"></td>
-                            <td data-set-day="1"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" data-alternative-index=""></th>
-                            <td data-set-day="2"></td>
-                            <td data-set-day="2"></td>
-                            <td data-set-day="2"></td>
-                            <td data-set-day="2"></td>
-                            <td data-set-day="2"></td>
-                            <td data-set-day="2"></td>
-                            <td data-set-day="2"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" data-alternative-index=""></th>
-                            <td data-set-day="3"></td>
-                            <td data-set-day="3"></td>
-                            <td data-set-day="3"></td>
-                            <td data-set-day="3"></td>
-                            <td data-set-day="3"></td>
-                            <td data-set-day="3"></td>
-                            <td data-set-day="3"></td>
-                        </tr>
-                    </tbody>
-                </table>               
-            </div>
-        </div><!-- row -->
+        <div class="container-alternative hide">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-alternative">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Seg</th>
+                                <th scope="col">Ter</th>
+                                <th scope="col">Qua</th>
+                                <th scope="col">Qui</th>
+                                <th scope="col">Sex</th>
+                                <th scope="col">Sab</th>
+                                <th scope="col">Dom</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" data-alternative-index=""></th>
+                                <td data-set-day="1"></td>
+                                <td data-set-day="1"></td>
+                                <td data-set-day="1"></td>
+                                <td data-set-day="1"></td>
+                                <td data-set-day="1"></td>
+                                <td data-set-day="1"></td>
+                                <td data-set-day="1"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" data-alternative-index=""></th>
+                                <td data-set-day="2"></td>
+                                <td data-set-day="2"></td>
+                                <td data-set-day="2"></td>
+                                <td data-set-day="2"></td>
+                                <td data-set-day="2"></td>
+                                <td data-set-day="2"></td>
+                                <td data-set-day="2"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" data-alternative-index=""></th>
+                                <td data-set-day="3"></td>
+                                <td data-set-day="3"></td>
+                                <td data-set-day="3"></td>
+                                <td data-set-day="3"></td>
+                                <td data-set-day="3"></td>
+                                <td data-set-day="3"></td>
+                                <td data-set-day="3"></td>
+                            </tr>
+                        </tbody>
+                    </table>               
+                </div><!-- col-md-12 -->
+    
+                <div class="col-md-3">
+                    <button type="button" id="printSchedule" class="btn btn-info btn-block">
+                        <i class="fa fa-print" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" id="copySchedule" class="btn btn-secondary btn-block font-weight-bold">Copiar Horário</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" id="hideSchedule" class="btn btn-warning btn-block">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div><!-- row -->
+        </div><!-- container-alternative -->
     </div><!-- container -->
 
     <script src="./app.js"></script>

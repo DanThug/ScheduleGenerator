@@ -1,0 +1,14 @@
+.hide {
+    display: none;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+
+@media print{
+    .container-main, .btn {
+        display: none;
+    }
+}

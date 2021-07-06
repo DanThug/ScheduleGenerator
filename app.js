@@ -1,15 +1,18 @@
-const addTime = document.querySelector('#addTime');
-const saveTime = document.querySelector('#saveTime');
-const resetTable = document.querySelector('#resetTable');
-
+const addSchedule = document.querySelector('#addSchedule');
+const saveSchedule = document.querySelector('#saveSchedule');
+const resetSchedule = document.querySelector('#resetSchedule');
+const containerAlternative = document.querySelector('.container-alternative');
+const printSchedule = document.querySelector('#printSchedule');
+const copySchedule = document.querySelector('#copySchedule');
+const hideSchedule = document.querySelector('#hideSchedule');
 
 const addRowInTableMain = () =>
     `<tr class="timelines">
         <th scope="row" data-main-index=""></th>
-        <td><input type="time" value="10:00" data-time="${++getScheduleValue().length}"></td>
+        <td><input type="time" data-time="${++getScheduleValue().length}"></td>
         <td><input type="checkbox" data-day="${++getScheduleValue().length}"></td>
         <td><input type="checkbox" data-day="${++getScheduleValue().length}"></td>
-        <td><input type="checkbox" data-day="${++getScheduleValue().length}" checked></td>
+        <td><input type="checkbox" data-day="${++getScheduleValue().length}"></td>
         <td><input type="checkbox" data-day="${++getScheduleValue().length}"></td>
         <td><input type="checkbox" data-day="${++getScheduleValue().length}"></td>
         <td><input type="checkbox" data-day="${++getScheduleValue().length}"></td>
@@ -62,7 +65,7 @@ const setScheduleValue = scheduleIndex => {
 setScheduleIndex();
 
 //LISTENERS
-addTime.addEventListener('click', () => {
+addSchedule.addEventListener('click', () => {
     const tableMain = document.querySelector('.table-main');
     const tableAlternative = document.querySelector('.table-alternative');
 
@@ -71,6 +74,25 @@ addTime.addEventListener('click', () => {
     setScheduleIndex();
 });
 
-saveTime.addEventListener('click', () => {
+saveSchedule.addEventListener('click', () => {
+    containerAlternative.classList.remove('hide');
     getScheduleValue().forEach((_, index) => setScheduleValue(index + 1))
+});
+
+resetSchedule.addEventListener('click', () => {
+    document.location.reload();
+});
+
+printSchedule.addEventListener('click', () => {
+    print();
+});
+
+copySchedule.addEventListener('click', () => {
+    const tableAlternative = document.querySelector('.table-alternative');
+    navigator.clipboard.writeText(tableAlternative.innerText)
+});
+
+hideSchedule.addEventListener('click', event => {
+    event.target.children[0].classList.toggle('fa-plus');
+    containerAlternative.classList.add('hide');
 });
