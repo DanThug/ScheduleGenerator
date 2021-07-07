@@ -52,7 +52,7 @@ const getScheduleValue = () => {
 //retorna um array contendo os 7 dias preenchidos com o horário informado ou a string "X"
 const getCheckboxValue = scheduleRow => {
     const checkboxes = document.querySelectorAll(`[data-day="${scheduleRow}"]`);
-    
+
     return Array.from(checkboxes)
         .map(checkbox => checkbox.checked
         ? document.querySelector(`[data-time="${scheduleRow}"]`).value: 'X');
@@ -67,30 +67,30 @@ const setScheduleValue = scheduleIndex => {
     });
 }
 
+const saveSchedule = () => {
+    containerAlternative.classList.remove('hide');
+    getScheduleValue().forEach((_, index) => setScheduleValue(index + 1))
+}
 
+const resetSchedule = () => {
+    document.location.reload();
+}
+
+const printSchedule = () => {
+    print();
+}
 
 //LISTENERS
 addScheduleButton.addEventListener('click', addScheduleRow);
-
-saveScheduleButton.addEventListener('click', () => {
-    containerAlternative.classList.remove('hide');
-    getScheduleValue().forEach((_, index) => setScheduleValue(index + 1))
-});
-
-resetScheduleButton.addEventListener('click', () => {
-    document.location.reload();
-});
-
-printScheduleButton.addEventListener('click', () => {
-    print();
-});
+saveScheduleButton.addEventListener('click', saveSchedule);
+resetScheduleButton.addEventListener('click', resetSchedule);
+printScheduleButton.addEventListener('click', printSchedule);
 
 copyScheduleButton.addEventListener('click', () => {
     const tableAlternative = document.querySelector('.table-alternative');
     navigator.clipboard.writeText(tableAlternative.innerText)
 });
 
-hideScheduleButton.addEventListener('click', event => {
-    event.target.children[0].classList.toggle('fa-plus');
+hideScheduleButton.addEventListener('click', () => {
     containerAlternative.classList.add('hide');
 });
